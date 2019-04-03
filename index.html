@@ -11905,11 +11905,374 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="-Test-Cases-"><font color="darkblue"> Test Cases </font><a class="anchor-link" href="#-Test-Cases-">&#182;</a></h1><p>We evaluated the convolutional neuronal network in 4 patients with TSC (not used in training, validation, or testing) with particularly challenging findings, such as subtle tubers or limited myelination.</p>
-<p>Test Case I was a 2 year-old male with high tuber burden. The convolutional neuronal network correctly classified images as having tuber(s) in 20 out of 20 T2 MRI slices (accuracy=1), even if some of the tubers were subtle. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseI/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseI/#T2</a>. The convolutional neuronal network correctly classified images as having tuber(s) in 19 out of 20 FLAIR MRI slices (accuracy=0.95), even if some of the tubers where subtle. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseI/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseI/#FLAIR</a>.</p>
-<p>Test Case II was a 5 year-old female with low tuber burden. The convolutional neuronal network classified images as having tuber(s) in 13 out of 30 T2 MRI slices. In particular, it classified 4 out of the 4 T2 MRI slices with tuber(s). It correctly classified 17 out of the 26 the negative slices as negative. Its accuracy in T2 was 0.7. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseII/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseII/#T2</a>. The convolutional neuronal network classified images as having tuber(s) in 2 out of 15 MRI FLAIR slices for a perfect classification. Its accuracy in FLAIR was 1. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseII/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseII/#FLAIR</a>.</p>
-<p>Test Case III was a 3 year-old male with high tuber burden. The convolutional neuronal network classified images as having tuber(s) in 29 out of 30 MRI T2 slices (accuracy=0.97), even if some of them where subtle. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#T2</a>. The convolutional neuronal network classified images as having tuber(s) in 7 out of 15 MRI FLAIR slices (accuracy=0.47), even if some of them where subtle. Interestingly, most of the images classified as negative had GradCAM and saliency maps highlighting the tubers, but their characteristics yielded a probability below the 0.5 threshold. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#FLAIR</a>.</p>
-<p>Test Case IV was a 10 day-old female with high tuber burden. The convolutional neuronal network classified images as having tuber(s) in 14 out of 20 T2 MRI slices, even if some of them where very subtle because of the very limited myelination. Interestingly, in most of the images classified as negative, the maps showed that the convolutional neuronal network was focusing on the areas with the tuber(s), but the estimated probability was low. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#T2</a>. The convolutional neuronal network classified images as having tuber(s) in 3 out of 15 FLAIR MRI slices, even if some of them where very subtle because of the limited myelination. The accuracy of the convolutional neuronal network in FLAIR in this very challenging set of images was 0.2. See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#FLAIR</a>.</p>
+<h1 id="-Test-Cases-"><font color="darkblue"> Test Cases </font><a class="anchor-link" href="#-Test-Cases-">&#182;</a></h1><p>We evaluated the deep learning model (trained InceptionV3 convolutional neuronal network) in 6 additional patients with TSC (not used in training, validation, or testing) who had particularly challenging findings, such as extremely subtle tubers or limited myelination.</p>
+<p>Evaluation of performance in this scenario is challenging because patients classified as negative by the neuroradiologist may have subtle signs of tuber. Also, tubers in some of the MRI slices were extremely subtle and the neuroradiologist detected them only after evaluating the adjacent MRI slices, an advantage that the deep learning model does not have because it evaluates each slice as independent. Interestingly, when the deep learning model missed tubers, the GradCAM maps and saliency maps showed that it was focusing on the area of tuber(s) but the estimated probability was below the threshold. We invite the reader to evaluate the performance of our deep learning algorithm by seeing the results in these highly challenging MRI images in the links below.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<p>Test Case I was a 2 year-old male with high tuber burden.</p>
+<p>In T2, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>20</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=1; Specificity=NA; Positive predictive value=1; Negative predictive value=NA; Accuracy=1</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseI/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseI/#T2</a>.</p>
+<p>In FLAIR, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>19</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.95; Specificity=NA; Positive predictive value=1; Negative predictive value=0; Accuracy=0.95</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseI/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseI/#FLAIR</a>.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<p>Test Case II was a 5 year-old female with low tuber burden.</p>
+<p>In T2, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>4</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>0</td>
+<td>17</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=1; Specificity=0.65; Positive predictive value=0.31; Negative predictive value=1; Accuracy=0.7</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseII/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseII/#T2</a>.</p>
+<p>In FLAIR, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>0</td>
+<td>13</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=1; Specificity=1; Positive predictive value=1; Negative predictive value=1; Accuracy=1</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseII/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseII/#FLAIR</a>.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<p>Test Case III was a 3 year-old male with high tuber burden.</p>
+<p>In T2, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>29</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.97; Specificity=NA; Positive predictive value=1; Negative predictive value=0; Accuracy=0.97</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#T2</a>.</p>
+<p>In FLAIR, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>7</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>8</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.47; Specificity=NA; Positive predictive value=1; Negative predictive value=0; Accuracy=0.47</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseIII/#FLAIR</a>.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<p>Test Case IV was a 10 day-old female with high tuber burden.</p>
+<p>In T2, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>14</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>6</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.7; Specificity=NA; Positive predictive value=1; Negative predictive value=0; Accuracy=0.7</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#T2</a>.</p>
+<p>In FLAIR, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>11</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.21; Specificity=0; Positive predictive value=0.75; Negative predictive value=0; Accuracy=0.2</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseIV/#FLAIR</a>.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<p>Test Case V was a 4 year-old female with medium tuber burden.</p>
+<p>In T2, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>10</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>4</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.71; Specificity=0.48; Positive predictive value=0.48; Negative predictive value=0.1; Accuracy=0.57</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseV/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseV/#T2</a>.</p>
+<p>In FLAIR, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>4</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.33; Specificity=1; Positive predictive value=1; Negative predictive value=0.69; Accuracy=0.73</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseV/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseV/#FLAIR</a>.</p>
+<p><br>
+<br>
+<br>
+<br></p>
+<p>Test Case VI was a 12 year-old male with high tuber burden.</p>
+<p>In T2, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>10</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>16</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.39; Specificity=0.25; Positive predictive value=0.77; Negative predictive value=0.06; Accuracy=0.37</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseVI/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseVI/#T2</a>.</p>
+<p>In FLAIR, the performance was:</p>
+<table>
+<thead><tr>
+<th>Real Classification</th>
+<th>TSC</th>
+<th>Control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Predicted classification</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSC</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Control</td>
+<td>9</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Sensitivity=0.25; Specificity=1; Positive predictive value=1; Negative predictive value=0.18; Accuracy=0.36</p>
+<p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseVI/#FLAIR">https://ivansanchezfernandez.github.io/TSC_TestCaseVI/#FLAIR</a>.</p>
 
 </div>
 </div>
