@@ -11905,8 +11905,8 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="-Test-Cases-"><font color="darkblue"> Test Cases </font><a class="anchor-link" href="#-Test-Cases-">&#182;</a></h1><p>We evaluated the deep learning model (trained InceptionV3 convolutional neuronal network) in 6 additional patients with TSC (not used in training, validation, or testing) who had particularly challenging findings, such as extremely subtle tubers or limited myelination.</p>
-<p>Evaluation of performance in this scenario is challenging because patients classified as negative by the neuroradiologist may have subtle signs of tuber. Also, tubers in some of the MRI slices were extremely subtle and the neuroradiologist detected them only after evaluating the adjacent MRI slices, an advantage that the deep learning model does not have because it evaluates each slice as independent. Interestingly, when the deep learning model missed tubers, the GradCAM maps and saliency maps showed that it was focusing on the area of tuber(s) but the estimated probability was below the threshold. We invite the reader to evaluate the performance of our deep learning algorithm by seeing the results in these highly challenging MRI images in the links below.</p>
+<h1 id="-Test-Cases-"><font color="darkblue"> Test Cases </font><a class="anchor-link" href="#-Test-Cases-">&#182;</a></h1><p>We evaluated the deep learning model (trained InceptionV3 convolutional neural network) in 6 additional patients with TSC (not used in training, validation, or testing) who had particularly challenging findings, such as extremely subtle tubers or limited myelination.</p>
+<p>Evaluation of performance in this scenario is challenging because MRI slices classified as negative by the neuroradiologist may have subtle signs of tubers (as opposed to the test set where normal MRI images came from patients with normal MRI and no TSC). Also, tubers in some of the MRI slices were extremely subtle and the neuroradiologist detected them only after evaluating the adjacent MRI slices, an advantage that the deep learning model does not have because it evaluates each MRI slice as an independent observation (without the context of adjacent MRI slices). When an MRI slice with tubers was missed was generally containing a subtle tail of a tuber that was correctly identified in adjacent MRI slices. Interestingly, when the deep learning model missed tubers, the GradCAM maps and saliency maps showed that it was focusing on the area of tuber(s) but the estimated probability was below the threshold. We invite the reader to evaluate the performance of our deep learning algorithm by seeing the results in these highly challenging MRI images in the links below.</p>
 <p><br>
 <br>
 <br>
@@ -12182,7 +12182,7 @@ a.anchor-link {
 </tr>
 </tbody>
 </table>
-<p>Sensitivity=0.71; Specificity=0.48; Positive predictive value=0.48; Negative predictive value=0.1; Accuracy=0.57</p>
+<p>Sensitivity=0.71; Specificity=0.48; Positive predictive value=0.48; Negative predictive value=0.71; Accuracy=0.57</p>
 <p>See the images at: <a href="https://ivansanchezfernandez.github.io/TSC_TestCaseV/#T2">https://ivansanchezfernandez.github.io/TSC_TestCaseV/#T2</a>.</p>
 <p>In FLAIR, the performance was:</p>
 <table>
